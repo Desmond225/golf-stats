@@ -12,22 +12,7 @@ import Box from '@mui/material/Box'
 import FormGroup from '@mui/material/FormGroup'
 import FormLabel from '@mui/material/FormLabel'
 import FormControl from '@mui/material/FormControl'
-import { makeStyles } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
-
-const useStyles = makeStyles((theme: Theme) => ({
-  form: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-    },
-    '& .MuiButton-root': {
-      margin: theme.spacing(1),
-    },
-  },
-}))
-
 export default function Dashboard() {
-  const classes = useStyles()
   const [roundId, setRoundId] = useState('')
   const [holeNumber, setHoleNumber] = useState(1)
   const [score, setScore] = useState(0)
@@ -49,7 +34,14 @@ export default function Dashboard() {
 
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 text-white">
-      <Box component="form" onSubmit={handleSubmit} noValidate autoComplete="off" className={classes.form}>
+      <Box component="form" onSubmit={handleSubmit} noValidate autoComplete="off" sx={{
+        '& .MuiTextField-root': {
+          margin: 1,
+        },
+        '& .MuiButton-root': {
+          margin: 1,
+        },
+      }}>
         <TextField id="round-id" label="Round ID" value={roundId} onChange={e => setRoundId(e.target.value)} />
         <TextField id="hole-number" label="Hole Number" type="number" value={holeNumber} onChange={e => setHoleNumber(Number(e.target.value))} InputProps={{ inputProps: { min: 1, max: 18 } }} />
         <TextField id="score" label="Score" type="number" value={score} onChange={e => setScore(Number(e.target.value))} InputProps={{ inputProps: { min: 0 } }} />
