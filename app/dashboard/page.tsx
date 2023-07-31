@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function Login() {
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
+    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 text-white">
       dashboard
     </div>
   )
