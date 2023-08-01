@@ -62,8 +62,12 @@ export default function Dashboard() {
             <TextField id={`proximity-to-hole-${i}`} label="Proximity to Hole" type="number" value={proximityToHole[i]} onChange={e => setProximityToHole(proximityToHole.map((p, idx) => idx === i ? Number(e.target.value) : p))} InputProps={{ inputProps: { min: 0 } }} />
             <TextField id={`putts-amount-${i}`} label="Putts Amount" type="number" value={puttsAmount[i]} onChange={e => setPuttsAmount(puttsAmount.map((p, idx) => idx === i ? Number(e.target.value) : p))} InputProps={{ inputProps: { min: 0 } }} />
             <TextField id={`putt-made-length-${i}`} label="Putt Made Length" type="number" value={puttMadeLength[i]} onChange={e => setPuttMadeLength(puttMadeLength.map((p, idx) => idx === i ? Number(e.target.value) : p))} InputProps={{ inputProps: { min: 0 } }} />
-            <FormControlLabel control={<Checkbox checked={scramble[i]} onChange={e => setScramble(scramble.map((s, idx) => idx === i ? e.target.checked : s))} />} label="Scramble" />
-            <FormControlLabel control={<Checkbox checked={sandSave[i]} onChange={e => setSandSave(sandSave.map((s, idx) => idx === i ? e.target.checked : s))} />} label="Sand Save" />
+            <Box>
+              <FormControlLabel control={<Checkbox checked={scramble[i]} onChange={e => setScramble(scramble.map((s, idx) => idx === i ? e.target.checked : s))} />} label="Scramble" />
+            </Box>
+            <Box>
+              <FormControlLabel control={<Checkbox checked={sandSave[i]} onChange={e => setSandSave(sandSave.map((s, idx) => idx === i ? e.target.checked : s))} />} label="Sand Save" />
+            </Box>
             <TextField id={`committed-shots-${i}`} label="Committed Shots" type="number" value={committedShots[i]} onChange={e => setCommittedShots(committedShots.map((c, idx) => idx === i ? Number(e.target.value) : c))} InputProps={{ inputProps: { min: 0 } }} />
           </div>
         ))}
