@@ -48,9 +48,15 @@ export default function Dashboard() {
         {Array.from({ length: 18 }, (_, i) => (
           <div key={i}>
             <h2>Hole {i + 1}</h2>
-            <TextField id={`score-${i}`} label="Score" type="number" value={score[i]} onChange={e => setScore(score.map((s, idx) => idx === i ? Number(e.target.value) : s))} InputProps={{ inputProps: { min: 0 } }} />
-            <FormControlLabel control={<Checkbox checked={fairwayHit[i]} onChange={e => setFairwayHit(fairwayHit.map((f, idx) => idx === i ? e.target.checked : f))} />} label="Fairway Hit" />
-            <FormControlLabel control={<Checkbox checked={greenHit[i]} onChange={e => setGreenHit(greenHit.map((g, idx) => idx === i ? e.target.checked : g))} />} label="Green Hit" />
+            <Box>
+              <TextField id={`score-${i}`} label="Score" type="number" value={score[i]} onChange={e => setScore(score.map((s, idx) => idx === i ? Number(e.target.value) : s))} InputProps={{ inputProps: { min: 0 } }} />
+            </Box>
+            <Box>
+              <FormControlLabel control={<Checkbox checked={fairwayHit[i]} onChange={e => setFairwayHit(fairwayHit.map((f, idx) => idx === i ? e.target.checked : f))} />} label="Fairway Hit" />
+            </Box>
+            <Box>
+              <FormControlLabel control={<Checkbox checked={greenHit[i]} onChange={e => setGreenHit(greenHit.map((g, idx) => idx === i ? e.target.checked : g))} />} label="Green Hit" />
+            </Box>
             <TextField id={`drive-distance-${i}`} label="Drive Distance" type="number" value={driveDistance[i]} onChange={e => setDriveDistance(driveDistance.map((d, idx) => idx === i ? Number(e.target.value) : d))} InputProps={{ inputProps: { min: 0 } }} />
             <TextField id={`approach-distance-${i}`} label="Approach Distance" type="number" value={approachDistance[i]} onChange={e => setApproachDistance(approachDistance.map((a, idx) => idx === i ? Number(e.target.value) : a))} InputProps={{ inputProps: { min: 0 } }} />
             <TextField id={`proximity-to-hole-${i}`} label="Proximity to Hole" type="number" value={proximityToHole[i]} onChange={e => setProximityToHole(proximityToHole.map((p, idx) => idx === i ? Number(e.target.value) : p))} InputProps={{ inputProps: { min: 0 } }} />
