@@ -27,19 +27,31 @@ export default function Dashboard() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
+    // Calculate sum and average values
+    const firSum = fairwayHit.reduce((a, b) => a + (b ? 1 : 0), 0);
+    const girSum = greenHit.reduce((a, b) => a + (b ? 1 : 0), 0);
+    const puttsAmountSum = puttsAmount.reduce((a, b) => a + b, 0);
+    const puttMadeLengthSum = puttMadeLength.reduce((a, b) => a + b, 0);
+    const committedShotsSum = committedShots.reduce((a, b) => a + b, 0);
+
+    const driveDistanceAvg = driveDistance.reduce((a, b) => a + b, 0) / driveDistance.length;
+    const approachDistanceAvg = approachDistance.reduce((a, b) => a + b, 0) / approachDistance.length;
+    const proximityToHoleAvg = proximityToHole.reduce((a, b) => a + b, 0) / proximityToHole.length;
+
     const { data, error } = await supabase
       .from('golf_rounds')
       .insert([
         { 
           score, 
-          fir: fairwayHit, 
-          gir: greenHit, 
-          drive_distance: driveDistance, 
-          approach_distance: approachDistance, 
-          proximity_to_hole: proximityToHole, 
-          putts_amount: puttsAmount, 
-          putt_made_length: puttMadeLength, 
-          committed_shots: committedShots 
+          fir_sum: firSum, 
+          gir_sum: girSum, 
+          drive_distance_avg: driveDistanceAvg, 
+          approach_distance_avg: approachDistanceAvg, 
+          proximity_to_hole_avg: proximityToHoleAvg, 
+          putts_amount_sum: puttsAmountSum, 
+          putt_made_length_sum: puttMadeLengthSum, 
+          committed_shots_sum: committedShotsSum 
         },
       ])
     if (error) {
