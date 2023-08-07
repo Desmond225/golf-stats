@@ -45,10 +45,11 @@ export default function Dashboard() {
         },
       }}>
         {Array.from({ length: 18 }, (_, i) => (
-          <div key={i}>
+          <div className="text-center w-100 " key={i}>
             <h2 className="text-center text-2xl font-bold mb-4">Hole {i + 1}</h2>
             <Box>
               <TextField 
+                className="w-full"
                 id={`score-${i}`} 
                 label="Score" 
                 type="number" 
@@ -70,7 +71,8 @@ export default function Dashboard() {
             </Box>
             {parThreeHoles.includes(i) ? null : (
               <>
-                <TextField 
+                <TextField
+                  className="w-full"
                   id={`drive-distance-${i}`} 
                   label="Drive Distance" 
                   type="number" 
@@ -91,7 +93,8 @@ export default function Dashboard() {
                 </Box>
               </>
             )}
-            <TextField 
+            <TextField
+              className="w-full"
               id={`approach-distance-${i}`} 
               label="Approach Distance" 
               type="number" 
@@ -99,14 +102,16 @@ export default function Dashboard() {
               onChange={e => setApproachDistance(approachDistance.map((a, idx) => idx === i ? Number(e.target.value) : a))} 
               InputProps={{ inputProps: { min: 0 } }}
             />
-            <TextField 
+            <TextField
+              className="w-full"
               id={`proximity-to-hole-${i}`} 
               label="Proximity to Hole" 
               type="number" 
               value={proximityToHole[i]} onChange={e => setProximityToHole(proximityToHole.map((p, idx) => idx === i ? Number(e.target.value) : p))}
               InputProps={{ inputProps: { min: 0 } }} 
             />
-            <TextField 
+            <TextField
+              className="w-full"
               id={`putts-amount-${i}`} 
               label="Putts Amount" 
               type="number" 
@@ -114,7 +119,8 @@ export default function Dashboard() {
               onChange={e => setPuttsAmount(puttsAmount.map((p, idx) => idx === i ? Number(e.target.value) : p))} 
               InputProps={{ inputProps: { min: 0 } }} 
             />
-            <TextField 
+            <TextField
+              className="w-full"
               id={`putt-made-length-${i}`} 
               label="Putt Made Length" 
               type="number" 
@@ -122,7 +128,8 @@ export default function Dashboard() {
               onChange={e => setPuttMadeLength(puttMadeLength.map((p, idx) => idx === i ? Number(e.target.value) : p))} 
               InputProps={{ inputProps: { min: 0 } }} 
             />
-            <TextField 
+            <TextField
+              className="w-full"
               id={`committed-shots-${i}`} 
               label="Committed Shots" 
               type="number" 
