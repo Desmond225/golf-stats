@@ -26,7 +26,26 @@ export default function Dashboard() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // TODO: Save the data to the database
+    const { data, error } = await supabase
+      .from('golf_rounds')
+      .insert([
+        { 
+          score, 
+          FIR: fairwayHit, 
+          GIR: greenHit, 
+          drive_distance: driveDistance, 
+          approach_distance: approachDistance, 
+          proximity_to_hole: proximityToHole, 
+          putts_amount: puttsAmount, 
+          putt_made_length: puttMadeLength, 
+          committed_shots: committedShots 
+        },
+      ])
+    if (error) {
+      console.error('Error inserting data: ', error)
+    } else {
+      console.log('Data inserted successfully: ', data)
+    }
   }
 
   const parThreeHoles = [2, 4, 6, 12, 14]; // Holes 3, 5, 7, 13, 15 are 0-indexed
