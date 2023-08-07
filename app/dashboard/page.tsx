@@ -46,7 +46,7 @@ export default function Dashboard() {
       }}>
         {Array.from({ length: 18 }, (_, i) => (
           <div key={i}>
-            <h2>Hole {i + 1}</h2>
+            <h2 className="text-center text-2xl font-bold mb-4">Hole {i + 1}</h2>
             <Box>
               <TextField id={`score-${i}`} label="Score" type="number" value={score[i]} onChange={e => setScore(score.map((s, idx) => idx === i ? Number(e.target.value) : s))} InputProps={{ inputProps: { min: 0 } }} />
             </Box>
@@ -70,7 +70,7 @@ export default function Dashboard() {
             <TextField id={`committed-shots-${i}`} label="Committed Shots" type="number" value={committedShots[i]} onChange={e => setCommittedShots(committedShots.map((c, idx) => idx === i ? Number(e.target.value) : c))} InputProps={{ inputProps: { min: 0 } }} />
           </div>
         ))}
-        <Button variant="contained" type="submit">Save</Button>
+        <Button className="text-black hover:text-white" variant="contained" type="submit">Save</Button>
       </Box>
     </div>
   )
