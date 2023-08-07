@@ -32,8 +32,8 @@ export default function Dashboard() {
       .insert([
         { 
           score, 
-          FIR: fairwayHit, 
-          GIR: greenHit, 
+          fir: fairwayHit, 
+          gir: greenHit, 
           drive_distance: driveDistance, 
           approach_distance: approachDistance, 
           proximity_to_hole: proximityToHole, 
