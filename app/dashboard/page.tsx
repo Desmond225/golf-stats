@@ -12,8 +12,8 @@ import Box from '@mui/material/Box'
 import FormGroup from '@mui/material/FormGroup'
 import FormLabel from '@mui/material/FormLabel'
 import FormControl from '@mui/material/FormControl'
+
 export default function Dashboard() {
-  const [roundId, setRoundId] = useState('')
   const [score, setScore] = useState(Array(18).fill(0))
   const [fairwayHit, setFairwayHit] = useState(Array(18).fill(false))
   const [greenHit, setGreenHit] = useState(Array(18).fill(false))
@@ -32,7 +32,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 text-white bg-white text-black">
+    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 bg-white text-black">
       <Box component="form" onSubmit={handleSubmit} noValidate autoComplete="off" sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -44,7 +44,6 @@ export default function Dashboard() {
           margin: 1,
         },
       }}>
-        <TextField id="round-id" label="Round ID" value={roundId} onChange={e => setRoundId(e.target.value)} />
         {Array.from({ length: 18 }, (_, i) => (
           <div key={i}>
             <h2>Hole {i + 1}</h2>
