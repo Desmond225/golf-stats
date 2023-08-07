@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { supabase } from '../../supabaseClient'
 import Link from 'next/link'
 import TextField from '@mui/material/TextField'
 import Checkbox from '@mui/material/Checkbox'
